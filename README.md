@@ -2,16 +2,16 @@
 Explore the Simple Port Scanner project! Learn to build a basic yet powerful port scanner with clear documentation. Perfect for beginners and those seeking to expand their cybersecurity skills.
 
 
-# Instructions
+# Documentation
 
 ## Port_Scaner_1
 
-This script utilizes the socket module, providing access to the BSD socket interface. These interfaces facilitate communication between processes across networks or locally.
+This script imports the `socket` module, which provides access to the BSD socket interface. These are communication endpoints that allow two processes to communicate with each other across a network or on a local machine.
 
-The line sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) instantiates a new object called sock from the socket module. We specify IPv4 communication with socket.AF_INET. To use IPv6, we would employ socket.AF_INET6.
+`sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)` This line creates a new object called `sock` from the `socket` module. We then specify to only use IPv4 `socket.AF_INET`. To instead do IPv6, we use `socket.AF_INET6`.
 
-socket.SOCK_STREAM indicates TCP usage exclusively. For UDP, we would use socket.SOCK_DGRAM.
+`socket.SOCK_STREAM` specifies we want to only use TCP. If we wanted to specifically do UDP, we would use `socket.SOCK_DGRAM`.
 
-connect_ex is a non-blocking version of connect, attempting connection establishment to a given address and returning an error code upon failure, without blocking the program. A successful connection yields a return value of 0.
+`connect_ex` is a non-blocking version of the `connect` method. It attempts to establish a connection to the specified address and returns an error code instead of blocking the program if it fails. If the connection is successful, it returns 0.
 
-result = sock.connect_ex(("192.168.0.250", 5000)) assigns the variable result, leveraging the sock object for a TCP request over IPv4, connecting to the specified IP and port. To adjust the port, one can manually modify it or employ a loop with port ranges using a variable. A result of 0 indicates an open port; any other value suggests inaccessibility, typically indicating closure.
+`result = sock.connect_ex(("192.168.0.250", 5000))` makes a variable called `result` that will use the object we created called `sock` to do a TCP request using IPv4 and then we use it to connect to a specified IP and Port. To change the port, we can manually do it or make a for loop with the port ranges and with a variable called `port`, then include the variable. Based on the result, if it is 0 it means the port is open, but anything else means the port is not accessible, so probably closed.
